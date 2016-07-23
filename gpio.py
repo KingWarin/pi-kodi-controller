@@ -1,6 +1,6 @@
 from xbmcclient import *
 from socket import *
-from controls import RotaryEnc
+from controls import RotaryEnc, Button
 import RPi.GPIO as GPIO
 import time
 
@@ -35,34 +35,21 @@ def main():
     sock = socket(AF_INET,SOCK_DGRAM)
 
     cf = CFunctions(True, sock, addr)
-#    GPIO.setmode(GPIO.BOARD)
-#    GPIO.setup(8, GPIO.IN)
-#    GPIO.setup(10, GPIO.IN)
 
-#    def volumeControl(direction):
-#        if direction == True:
-#            # clockwise -> volume Up
-#            print "Volume Up"
-#            packet = PacketBUTTON(map_name="KB", button_name="plus", repeat=0)
-#            packet.send(sock, addr)
-#        else:
-#            # counterclockwise -> volume Down
-#            print "Volume Down"
-#            packet = PacketBUTTON(map_name="KB", button_name="minus", repeat=0)
-#            packet.send(sock, addr)
-#
-#    def buttonControl():
-#        print "Switch Volume Direction"
-
+    # Setup a rotaryEncoder with switch for volume control
     R1 = RotaryEnc(
-        PinA=7,
-        PinB=5,
+        PinA=10,
+        PinB=8,
         button=3,
         rotaryCallback=cf.volumeControl,
         buttonCallback=cf.buttonControl
     )
 
-#    sock = socket(AF_INET,SOCK_DGRAM)
+    def fake():
+        # just a test for a second button without creating a new function
+        return cf.volumeControl(True)
+
+    B1 = Button(pin=7,callback=fake,single=False)
 
     # First packet must be HELO and can contain an icon
     packet = PacketHELO("BreadBoard Control", ICON_NONE)
@@ -71,19 +58,9 @@ def main():
 
     while True:
         #CODE TO CATCH BUTTON PRESS HERE
-#        volup = GPIO.input(8)
-#        voldown = GPIO.input(10)
-#        if volup == False:
-#            print "Volume Up"
-#            packet = PacketBUTTON(map_name="KB", button_name="plus", repeat=0)
-#            packet.send(sock, addr)
-#        elif voldown == False:
-#            print "Volume Down"
-#            packet = PacketBUTTON(map_name="KB", button_name="minus", repeat=0)
-#            packet.send(sock, addr)
         R1.read()
         R1.read_button()
-#        time.sleep(0.1)
+        B1.read()
 
 if __name__ == "__main__":
     main()
