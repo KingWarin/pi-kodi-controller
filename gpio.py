@@ -66,8 +66,8 @@ def main():
          )
 
     R2 = RotaryEnc(
-            PinA=13,
-            PinB=11,
+            PinA=11,
+            PinB=13,
             button=15,
             rotaryCallback=cf.menuControl,
             buttonCallback=cf.menuSelect
