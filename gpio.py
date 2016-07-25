@@ -10,22 +10,42 @@ class CFunctions:
         self.direction = direction
         self.sock = sock
         self.addr = addr
+        self.key_map = "KB"
+
+    def _sender(self, button):
+        packet = PacketBUTTON(map_name="KB", button_name=button, repeat=0)
+        packet.send(self.sock, self.addr)
 
     def volumeControl(self, direction):
         if direction == self.direction:
             # clockwise -> volume Up
             print "Volume Up"
-            packet = PacketBUTTON(map_name="KB", button_name="plus", repeat=0)
-            packet.send(self.sock, self.addr)
+            self._sender("plus")
         else:
             # counterclockwise -> volume Down
             print "Volume Down"
-            packet = PacketBUTTON(map_name="KB", button_name="minus", repeat=0)
-            packet.send(self.sock, self.addr)
+            self._sender("minus")
+
+    def menuControl(self, direction):
+        if direction == self.direction:
+            # clockwise -> down
+            print "Down"
+            self._sender("down")
+        else:
+            # counterclockwise -> up
+            self._sender("up")
 
     def buttonControl(self):
         print "Switch Volume Direction"
-        self.direction = False if self.direction else True 
+        self.direction = False if self.direction else True
+
+    def menuSelect(self):
+        print "Select"
+        self._sender("enter")
+
+    def openMusic(self):
+        print "Open Music"
+        self._sender("yellow")
 
 
 def main():
@@ -38,12 +58,21 @@ def main():
 
     # Setup a rotaryEncoder with switch for volume control
     R1 = RotaryEnc(
-        PinA=10,
-        PinB=8,
-        button=3,
-        rotaryCallback=cf.volumeControl,
-        buttonCallback=cf.buttonControl
-    )
+            PinA=10,
+            PinB=8,
+            button=3,
+            rotaryCallback=cf.volumeControl,
+            buttonCallback=cf.buttonControl
+         )
+
+    R2 = RotaryEnc(
+            PinA=13,
+            PinB=11,
+            button=15,
+            rotaryCallback=cf.menuControl,
+            buttonCallback=cf.menuSelect
+         )
+
 
     def fake():
         # just a test for a second button without creating a new function
@@ -55,12 +84,15 @@ def main():
     packet = PacketHELO("BreadBoard Control", ICON_NONE)
     packet.send(sock, addr)
 
+    cf.openMusic()
 
     while True:
         #CODE TO CATCH BUTTON PRESS HERE
         R1.read()
         R1.read_button()
         B1.read()
+        R2.read()
+        R2.read_button()
 
 if __name__ == "__main__":
     main()
