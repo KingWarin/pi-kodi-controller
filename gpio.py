@@ -39,13 +39,25 @@ class CFunctions:
         print "Switch Volume Direction"
         self.direction = False if self.direction else True
 
+    def playPause(self):
+        print "PlayPause"
+        self._sender("space")
+
+    def nextTrack(self):
+        print "NextTrack"
+        self._sender("period")
+
+    def prevTrack(self):
+        print "PrevTrack"
+        self._sender("comma")
+
+    def levelBack(self):
+        print "LevelBack"
+        self._sender("backspace")
+
     def menuSelect(self):
         print "Select"
         self._sender("enter")
-
-    def openMusic(self):
-        print "Open Music"
-        self._sender("yellow")
 
 
 def main():
@@ -58,39 +70,47 @@ def main():
 
     # Setup a rotaryEncoder with switch for volume control
     R1 = RotaryEnc(
-            PinA=10,
-            PinB=8,
-            button=3,
+            PinA=11,
+            PinB=13,
+            button=15,
             rotaryCallback=cf.volumeControl,
             buttonCallback=cf.buttonControl
          )
 
+    # Setup a rotaryEncoder with switch for menu control
     R2 = RotaryEnc(
-            PinA=11,
-            PinB=13,
-            button=15,
+            PinA=19,
+            PinB=21,
+            button=23,
             rotaryCallback=cf.menuControl,
             buttonCallback=cf.menuSelect
          )
 
 
-    def fake():
-        # just a test for a second button without creating a new function
-        return cf.volumeControl(True)
+    # Setup play/pause button
+    B1 = Button(pin=3,callback=cf.playPause)
 
-    B1 = Button(pin=7,callback=fake,single=False)
+    # Setup play next button
+    B2 = Button(pin=7,callback=cf.nextTrack)
+
+    # Setup play prev button
+    B3 = Button(pin=29,callback=cf.prevTrack)
+
+    # Setup one level back button
+    B4 = Button(pin=31,callback=cf.levelBack)
 
     # First packet must be HELO and can contain an icon
     packet = PacketHELO("BreadBoard Control", ICON_NONE)
     packet.send(sock, addr)
-
-    cf.openMusic()
 
     while True:
         #CODE TO CATCH BUTTON PRESS HERE
         R1.read()
         R1.read_button()
         B1.read()
+        B2.read()
+        B3.read()
+        B4.read()
         R2.read()
         R2.read_button()
 
