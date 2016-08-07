@@ -1,0 +1,94 @@
+Cmp-Mod V01 Created by CvPcb (22-Jun-2014 BZR 4027)-stable date = Sa 06 Aug 2016 18:17:43 CEST
+
+BeginCmp
+TimeStamp = /57A6062D;
+Reference = R1;
+ValeurCmp = R;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /57A6063C;
+Reference = R2;
+ValeurCmp = R;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /57A6064B;
+Reference = R3;
+ValeurCmp = R;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /57A6065A;
+Reference = R4;
+ValeurCmp = R;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /57A60669;
+Reference = R5;
+ValeurCmp = R;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /57A60678;
+Reference = R6;
+ValeurCmp = R;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /57A60481;
+Reference = SW1;
+ValeurCmp = SW_PUSH_SMALL;
+IdModule  = SW_PUSH_SMALL;
+EndCmp
+
+BeginCmp
+TimeStamp = /57A60490;
+Reference = SW2;
+ValeurCmp = SW_PUSH_SMALL;
+IdModule  = SW_PUSH_SMALL;
+EndCmp
+
+BeginCmp
+TimeStamp = /57A6049F;
+Reference = SW3;
+ValeurCmp = SW_PUSH_SMALL;
+IdModule  = SW_PUSH_SMALL;
+EndCmp
+
+BeginCmp
+TimeStamp = /57A604AE;
+Reference = SW4;
+ValeurCmp = SW_PUSH_SMALL;
+IdModule  = SW_PUSH_SMALL;
+EndCmp
+
+BeginCmp
+TimeStamp = /57A60600;
+Reference = U1;
+ValeurCmp = ROTCONT;
+IdModule  = rotaryController;
+EndCmp
+
+BeginCmp
+TimeStamp = /57A6084F;
+Reference = U2;
+ValeurCmp = PINS;
+IdModule  = pins;
+EndCmp
+
+BeginCmp
+TimeStamp = /57A60614;
+Reference = U3;
+ValeurCmp = ROTCONT;
+IdModule  = rotaryController;
+EndCmp
+
+EndListe
