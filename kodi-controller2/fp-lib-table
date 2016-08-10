@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name kodi-controller)(type Legacy)(uri /home/svh/privat/pi-kodi-controller/kodi-controller/kodi-controller.mod)(options "")(descr ""))
+)
