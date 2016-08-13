@@ -1,9 +1,9 @@
 (kicad_pcb (version 4) (host pcbnew 4.0.2+dfsg1-2~bpo8+1-stable)
 
   (general
-    (links 40)
-    (no_connects 18)
-    (area 79.420835 73.84124 218.425 138.730001)
+    (links 41)
+    (no_connects 11)
+    (area 107.399597 73.84124 218.425 138.730001)
     (thickness 1.6)
     (drawings 12)
     (tracks 91)
@@ -583,12 +583,12 @@
       (net 1 GND))
   )
 
-  (gr_line (start 156.4 75.83) (end 215.4 75.83) (angle 90) (layer Edge.Cuts) (width 0.1) (tstamp 57ACA090))
+  (gr_line (start 156.07 75.83) (end 215.07 75.83) (angle 90) (layer Edge.Cuts) (width 0.1) (tstamp 57ACA090))
   (gr_line (start 218 78.7) (end 218 85.3) (layer Edge.Cuts) (width 0.1) (tstamp 57ACA07C))
   (gr_line (start 218 135.6) (end 218 85.1) (angle 90) (layer Edge.Cuts) (width 0.1) (tstamp 57ACA066))
   (gr_line (start 215.1 138.6) (end 156.1 138.6) (angle 90) (layer Edge.Cuts) (width 0.1) (tstamp 57ACA04B))
   (gr_arc (start 215 135.6) (end 218 135.6) (angle 90) (layer Edge.Cuts) (width 0.1) (tstamp 57ACA031))
-  (gr_arc (start 215 78.8) (end 215 75.8) (angle 90) (layer Edge.Cuts) (width 0.1) (tstamp 57ACA001))
+  (gr_arc (start 215 78.82) (end 215 75.82) (angle 90) (layer Edge.Cuts) (width 0.1) (tstamp 57ACA001))
   (gr_line (start 108.77 129.33) (end 108.77 135.93) (layer Edge.Cuts) (width 0.1))
   (gr_line (start 111.77 75.83) (end 170.77 75.83) (angle 90) (layer Edge.Cuts) (width 0.1))
   (gr_line (start 108.77 129.33) (end 108.77 78.83) (angle 90) (layer Edge.Cuts) (width 0.1))
