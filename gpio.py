@@ -70,34 +70,34 @@ def main():
 
     # Setup a rotaryEncoder with switch for volume control
     R1 = RotaryEnc(
-            PinA=11,
-            PinB=13,
-            button=15,
+            PinA=7,
+            PinB=3,
+            button=11,
             rotaryCallback=cf.volumeControl,
             buttonCallback=cf.buttonControl
          )
 
     # Setup a rotaryEncoder with switch for menu control
     R2 = RotaryEnc(
-            PinA=19,
-            PinB=21,
-            button=23,
+            PinA=29,
+            PinB=23,
+            button=31,
             rotaryCallback=cf.menuControl,
             buttonCallback=cf.menuSelect
          )
 
 
     # Setup play/pause button
-    B1 = Button(pin=3,callback=cf.playPause)
+    B1 = Button(pin=15,callback=cf.playPause)
 
     # Setup play next button
-    B2 = Button(pin=7,callback=cf.nextTrack)
+    B2 = Button(pin=13,callback=cf.nextTrack)
 
     # Setup play prev button
-    B3 = Button(pin=29,callback=cf.prevTrack)
+    B3 = Button(pin=21,callback=cf.prevTrack)
 
     # Setup one level back button
-    B4 = Button(pin=31,callback=cf.levelBack)
+    B4 = Button(pin=19,callback=cf.levelBack)
 
     # First packet must be HELO and can contain an icon
     packet = PacketHELO("BreadBoard Control", ICON_NONE)
