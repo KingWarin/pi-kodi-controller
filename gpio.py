@@ -70,8 +70,8 @@ def main():
 
     # Setup a rotaryEncoder with switch for volume control
     R1 = RotaryEnc(
-            PinA=7,
-            PinB=3,
+            PinA=3,
+            PinB=7,
             button=11,
             rotaryCallback=cf.volumeControl,
             buttonCallback=cf.buttonControl
@@ -79,8 +79,8 @@ def main():
 
     # Setup a rotaryEncoder with switch for menu control
     R2 = RotaryEnc(
-            PinA=29,
-            PinB=23,
+            PinA=23,
+            PinB=29,
             button=31,
             rotaryCallback=cf.menuControl,
             buttonCallback=cf.menuSelect
